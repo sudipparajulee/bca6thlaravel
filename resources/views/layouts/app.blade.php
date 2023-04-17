@@ -15,22 +15,25 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+       <div class="flex">
+            <div class="w-56 h-screen bg-gray-200 shadow-lg shadow-red-300">
+                <img class="bg-white mx-4 w-44 my-5 rounded-lg py-3" src="https://bitmapitsolution.com/images/logo/logo.png" alt="">
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+                <div>
+                    <a href="" class="text-xl font-bold border-b-2 border-blue-500 block ml-4 px-2 py-1 hover:bg-blue-500 hover:text-white">Dashboard</a>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
+                    <a href="" class="text-xl font-bold border-b-2 border-blue-500 block ml-4 px-2 py-1 hover:bg-blue-500 hover:text-white">Categories</a>
+
+                    <a href="" class="text-xl font-bold border-b-2 border-blue-500 block ml-4 px-2 py-1 hover:bg-blue-500 hover:text-white">News</a>
+                    
+                    <a href="" class="text-xl font-bold border-b-2 border-blue-500 block ml-4 px-2 py-1 hover:bg-blue-500 hover:text-white">Logout</a>
+                </div>
+            </div>
+
+
+            <div class=" p-4 flex-1">
+                @yield('content')
+            </div>
+       </div>
     </body>
 </html>

@@ -13,6 +13,9 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="{{asset('datatable/jquery-3.6.0.js')}}"></script>
+        <link rel="stylesheet" href="{{asset('datatable/datatables.css')}}">
+        <script src="{{asset('datatable/datatables.js')}}"></script>
     </head>
     <body class="font-sans antialiased">
        <div class="flex">

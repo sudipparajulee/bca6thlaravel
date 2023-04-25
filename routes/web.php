@@ -25,6 +25,8 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/category',[CategoryController::class,'index'])->middleware('auth')->name('category.index');
+Route::get('/category/create',[CategoryController::class,'create'])->middleware('auth')->name('category.create');
+Route::post('/category/store',[CategoryController::class,'store'])->middleware('auth')->name('category.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

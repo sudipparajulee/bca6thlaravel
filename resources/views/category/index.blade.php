@@ -4,7 +4,7 @@
     <hr class="h-1 bg-blue-200">
 
     <div class="my-4 text-right px-10">
-        <a href="#" class="bg-amber-400 text-black px-4 py-2 rounded-lg shadow-md hover:shadow-amber-300">Add Category</a>
+        <a href="{{route('category.create')}}" class="bg-amber-400 text-black px-4 py-2 rounded-lg shadow-md hover:shadow-amber-300">Add Category</a>
     </div>
 
     <table id="mytable" class="display">

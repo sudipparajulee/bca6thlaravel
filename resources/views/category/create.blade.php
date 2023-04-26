@@ -3,7 +3,8 @@
     <h2 class="font-bold text-4xl text-blue-700">Add Category</h2> 
     <hr class="h-1 bg-blue-200">
 
-    <form action="" class="mt-5">
+    <form action="{{route('category.store')}}" method="POST" class="mt-5">
+        @csrf
         <input type="text" placeholder="Category Name" name="name" class="w-full rounded-lg border-gray-300 my-2">
         <input type="text" placeholder="Priority" name="priority" class="w-full rounded-lg border-gray-300 my-2">
 

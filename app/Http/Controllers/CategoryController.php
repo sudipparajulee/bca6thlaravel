@@ -18,6 +18,6 @@ class CategoryController extends Controller
 
     public function store()
     {
-        
+        dd('hello');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -16,8 +17,14 @@ class CategoryController extends Controller
         return view('category.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        dd('hello');
+        $data = $request->validate([
+            'name' => 'required',
+            'priority' => 'required|numeric'
+        ]);
+
+        Category::create($data);
+        return redirect(route('category.index'));
     }
 }

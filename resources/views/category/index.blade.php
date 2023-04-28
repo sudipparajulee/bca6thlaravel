@@ -14,14 +14,16 @@
             <th>Action</th>
         </thead>
         <tbody>
+            @foreach($categories as $category)
             <tr>
-                <td>1</td>
-                <td>Watch</td>
+                <td>{{$category->priority}}</td>
+                <td>{{$category->name}}</td>
                 <td>
-                    <a href="#" class="bg-blue-600 text-white px-2 py-1 rounded shadow hover:shadow-blue-400">Edit</a>
+                    <a href="{{route('category.edit',$category->id)}}" class="bg-blue-600 text-white px-2 py-1 rounded shadow hover:shadow-blue-400">Edit</a>
                     <a href="#" class="bg-red-600 text-white px-2 py-1 rounded shadow hover:shadow-red-400">Delete</a>
                 </td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 

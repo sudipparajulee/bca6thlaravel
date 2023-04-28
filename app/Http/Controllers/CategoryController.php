@@ -9,7 +9,8 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return view('category.index');
+        $categories = Category::all();
+        return view('category.index',compact('categories'));
     }
 
     public function create()
@@ -26,5 +27,11 @@ class CategoryController extends Controller
 
         Category::create($data);
         return redirect(route('category.index'));
+    }
+
+    public function edit($id)
+    {
+        $category = Category::find($id);
+        return view('category.edit',compact('category'));
     }
 }

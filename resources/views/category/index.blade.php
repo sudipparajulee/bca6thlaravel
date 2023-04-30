@@ -20,7 +20,7 @@
                 <td>{{$category->name}}</td>
                 <td>
                     <a href="{{route('category.edit',$category->id)}}" class="bg-blue-600 text-white px-2 py-1 rounded shadow hover:shadow-blue-400">Edit</a>
-                    <a href="#" class="bg-red-600 text-white px-2 py-1 rounded shadow hover:shadow-red-400">Delete</a>
+                    <a onclick="return confirm('Are you sure to delete?')" href="{{route('category.destroy',$category->id)}}" class="bg-red-600 text-white px-2 py-1 rounded shadow hover:shadow-red-400">Delete</a>
                 </td>
             </tr>
             @endforeach

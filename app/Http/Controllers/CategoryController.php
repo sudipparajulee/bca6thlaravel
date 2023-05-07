@@ -47,9 +47,16 @@ class CategoryController extends Controller
         return redirect(route('category.index'));
     }
 
-    public function destroy($id)
+    // public function destroy($id)
+    // {
+    //     $category = Category::find($id);
+    //     $category->delete();
+    //     return redirect(route('category.index'));
+    // }
+
+    public function destroy(Request $request)
     {
-        $category = Category::find($id);
+        $category = Category::find($request->dataid);
         $category->delete();
         return redirect(route('category.index'));
     }

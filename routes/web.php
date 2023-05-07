@@ -35,7 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
     Route::get('/category/{id}/edit',[CategoryController::class,'edit'])->name('category.edit');
     Route::post('/category/{id}/update',[CategoryController::class,'update'])->name('category.update');
-    Route::get('/category/{id}/destroy',[CategoryController::class,'destroy'])->name('category.destroy');
+    // Route::get('/category/{id}/destroy',[CategoryController::class,'destroy'])->name('category.destroy');
+    Route::post('/category/destroy',[CategoryController::class,'destroy'])->name('category.destroy');
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

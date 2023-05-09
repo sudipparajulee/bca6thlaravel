@@ -27,6 +27,8 @@
 
                     <a href="{{route('category.index')}}" class="text-xl font-bold border-b-2 border-blue-500 block ml-4 px-2 py-1 hover:bg-blue-500 hover:text-white">Categories</a>
 
+                    <a href="{{route('notice.index')}}" class="text-xl font-bold border-b-2 border-blue-500 block ml-4 px-2 py-1 hover:bg-blue-500 hover:text-white">Notices</a>
+
                     <a href="" class="text-xl font-bold border-b-2 border-blue-500 block ml-4 px-2 py-1 hover:bg-blue-500 hover:text-white">News</a>
                     
                     <a href="" class="text-xl font-bold border-b-2 border-blue-500 block ml-4 px-2 py-1 hover:bg-blue-500 hover:text-white">Logout</a>

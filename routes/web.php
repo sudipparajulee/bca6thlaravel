@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/category/{id}/update',[CategoryController::class,'update'])->name('category.update');
     // Route::get('/category/{id}/destroy',[CategoryController::class,'destroy'])->name('category.destroy');
     Route::post('/category/destroy',[CategoryController::class,'destroy'])->name('category.destroy');
+
+
+
+    //Notice
+    Route::get('/notice',[NoticeController::class,'index'])->name('notice.index');
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

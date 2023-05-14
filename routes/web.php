@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Gallery;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +44,15 @@ Route::middleware('auth')->group(function () {
 
     //Notice
     Route::get('/notice',[NoticeController::class,'index'])->name('notice.index');
+
+
+    //Gallery
+    Route::get('/gallery',[GalleryController::class,'index'])->name('gallery.index');
+    Route::get('/gallery/create',[GalleryController::class,'create'])->name('gallery.create');
+    Route::post('/gallery/store',[GalleryController::class,'store'])->name('gallery.store');
+    Route::get('/gallery/{id}/edit',[GalleryController::class,'edit'])->name('gallery.edit');
+    Route::post('/gallery/{id}/update',[GalleryController::class,'update'])->name('gallery.update');
+    Route::post('/gallery/destroy',[GalleryController::class,'destroy'])->name('gallery.destroy');
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

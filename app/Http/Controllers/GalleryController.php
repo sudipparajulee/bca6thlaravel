@@ -12,7 +12,8 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        //
+        $galleries = Gallery::all();
+        return view('gallery.index',compact('galleries'));
     }
 
     /**
@@ -20,7 +21,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        //
+        return view('gallery.create');
     }
 
     /**
@@ -28,7 +29,21 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required',
+            'photopath' => 'required|image|mimes:jpeg,png,jpg'
+        ]);
+
+        if($request->hasFile('photopath')){
+            $image = $request->file('photopath');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/gallery');
+            $image->move($destinationPath,$name);
+            $data['photopath'] = $name;
+        }
+
+        Gallery::create($data);
+        return redirect(route('gallery.index'))->with('success','Gallery created successfully');
     }
 
     /**

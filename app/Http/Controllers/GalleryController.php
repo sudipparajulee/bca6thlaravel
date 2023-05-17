@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class GalleryController extends Controller
 {
@@ -57,24 +58,44 @@ class GalleryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Gallery $gallery)
+    public function edit($id)
     {
-        //
+        $gallery = Gallery::find($id);
+        return view('gallery.edit',compact('gallery'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Gallery $gallery)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required',
+            'photopath' => 'nullable|image|mimes:jpeg,png,jpg'
+        ]);
+
+        $gallery = Gallery::find($id);
+        if($request->hasFile('photopath')){
+            $image = $request->file('photopath');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/gallery');
+            $image->move($destinationPath,$name);
+            File::delete(public_path('/images/gallery/'.$gallery->photopath));
+            $data['photopath'] = $name;
+        }
+
+        $gallery->update($data);
+        return redirect(route('gallery.index'))->with('success','Gallery Updated Successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Gallery $gallery)
+    public function destroy(Request $request)
     {
-        //
+        $gallery = Gallery::find($request->dataid);
+        $gallery->delete();
+        File::delete(public_path('/images/gallery/'.$gallery->photopath));
+        return redirect(route('gallery.index'))->with('success','Gallery Deleted Successfully');
     }
 }

@@ -31,6 +31,9 @@
 
                     <a href="{{route('gallery.index')}}" class="text-xl font-bold border-b-2 border-blue-500 block ml-4 px-2 py-1 hover:bg-blue-500 hover:text-white">Gallery</a>
 
+                    <a href="{{route('product.index')}}" class="text-xl font-bold border-b-2 border-blue-500 block ml-4 px-2 py-1 hover:bg-blue-500 hover:text-white">Products</a>
+
+
 
                     <a href="" class="text-xl font-bold border-b-2 border-blue-500 block ml-4 px-2 py-1 hover:bg-blue-500 hover:text-white">News</a>
                     

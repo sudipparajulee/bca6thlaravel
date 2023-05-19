@@ -25,7 +25,7 @@
             <tr>
                 <td>{{$product->id}}</td>
                 <td>{{$product->name}}</td>
-                <td><img class="w-44" src="{{ asset('images/product/'.$product->photopath) }}" alt=""></td>
+                <td><img class="w-44" src="{{ asset('images/products/'.$product->photopath) }}" alt=""></td>
                 <td>{{$product->description}}</td>
                 <td>{{$product->price}}</td>
                 <td>{{$product->stock}}</td>

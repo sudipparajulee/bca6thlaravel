@@ -8,7 +8,7 @@
 
         <select name="category_id" id="" class="w-full rounded-lg border-gray-300 my-2">
             @foreach($categories as $category)
-            <option value="{{$category->id}}">{{$category->name}}</option>
+            <option value="{{$category->id}}" @if($product->category_id == $category->id) selected @endif>{{$category->name}}</option>
             @endforeach
         </select>
 

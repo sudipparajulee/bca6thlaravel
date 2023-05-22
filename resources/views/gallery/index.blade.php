@@ -17,9 +17,10 @@
             <th>Action</th>
         </thead>
         <tbody>
+        
             @foreach($galleries as $gallery)
             <tr>
-                <td>{{$gallery->id}}</td>
+                <td>{{$loop->iteration}}</td>
                 <td>{{$gallery->title}}</td>
                 <td><img class="w-44" src="{{ asset('images/gallery/'.$gallery->photopath) }}" alt=""></td>
                 <td>

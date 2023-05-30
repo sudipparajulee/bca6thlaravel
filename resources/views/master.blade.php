@@ -12,9 +12,9 @@
     <nav class="navbar">
         <ul class="menu">
             <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="">Contact</a></li>
-            <li><a href="">Login</a></li>
+            @foreach($categories as $category)
+            <li><a href="/">{{$category->name}}</a></li>
+            @endforeach
         </ul>
     </nav>
 

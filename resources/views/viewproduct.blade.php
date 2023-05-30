@@ -14,6 +14,7 @@
                 <input class="h-11 w-12 px-0 text-center border-0 bg-gray-100" type="number" value="1" disabled>
                 <span class="bg-gray-200 px-4 py-2 font-bold text-xl">+</span>
             </p>
+            <p>In Stock: {{$product->stock}}</p>
 
             <div class="mt-14">
                 <a href="" class="bg-indigo-600 text-white px-6 py-2 rounded-lg shadow">Add to Cart</a>

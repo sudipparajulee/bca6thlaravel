@@ -15,6 +15,7 @@
             <th>Product Name</th>
             <th>Picture</th>
             <th>Description</th>
+            <th>Oldprice</th>
             <th>Price</th>
             <th>Stock</th>
             <th>Category</th>
@@ -27,6 +28,7 @@
                 <td>{{$product->name}}</td>
                 <td><img class="w-44" src="{{ asset('images/products/'.$product->photopath) }}" alt=""></td>
                 <td>{{$product->description}}</td>
+                <td>{{$product->oldprice}}</td>
                 <td>{{$product->price}}</td>
                 <td>{{$product->stock}}</td>
                 <td>{{$product->category->name}}</td>

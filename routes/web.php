@@ -26,7 +26,7 @@ Route::get('/viewproduct/{product}',[PagesController::class,'viewproduct'])->nam
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified','isadmin'])->name('dashboard');
 
 
 
@@ -34,7 +34,7 @@ Route::get('/dashboard', function () {
 
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','isadmin'])->group(function () {
 
 
     Route::get('/category',[CategoryController::class,'index'])->name('category.index');

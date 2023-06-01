@@ -28,4 +28,11 @@ class PagesController extends Controller
     }
 
 
+    public function userlogin()
+    {
+        $categories = Category::orderBy('priority')->get();
+        return view('userlogin',compact('categories'));
+    }
+
+
 }

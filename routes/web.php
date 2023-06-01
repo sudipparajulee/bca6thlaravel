@@ -6,6 +6,7 @@ use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Models\Gallery;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[PagesController::class,'home'])->name('home');
 
 Route::get('/viewproduct/{product}',[PagesController::class,'viewproduct'])->name('viewproduct');
+
+Route::get('/userlogin',[PagesController::class,'userlogin'])->name('userlogin');
+
+Route::get('/userregister',[UserController::class,'userregister'])->name('user.register');
+Route::post('/userregister',[UserController::class,'userstore'])->name('user.register');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

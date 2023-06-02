@@ -1,5 +1,6 @@
 @extends('master')
 @section('content')
+@include('layouts.message')
     <div class="grid grid-cols-3 px-44 gap-10 my-10">
         <div>
             <img src="{{asset('images/products/'.$product->photopath)}}" alt="" class="w-full h-96 object-cover rounded-lg">
@@ -11,16 +12,23 @@
             @endif
             <p class="text-red-700 text-2xl font-bold">Rs. {{$product->price}}/-</p>
             <p>Quantity</p>
-            <p class="mt-4 flex items-center">
+            <form action="{{route('cart.store')}}" method="POST">
+            <div class="mt-4 flex items-center">
                 <span class="bg-gray-200 px-4 py-2 font-bold text-xl">-</span>
-                <input class="h-11 w-12 px-0 text-center border-0 bg-gray-100" type="number" value="1" disabled>
+                <input class="h-11 w-12 px-0 text-center border-0 bg-gray-100" type="number" name="qty" value="1" readonly>
                 <span class="bg-gray-200 px-4 py-2 font-bold text-xl">+</span>
-            </p>
+            </div>
             <p>In Stock: {{$product->stock}}</p>
 
             <div class="mt-14">
-                <a href="" class="bg-indigo-600 text-white px-6 py-2 rounded-lg shadow">Add to Cart</a>
+                
+                    @csrf
+
+                    <input type="hidden" name="product_id" value="{{$product->id}}">
+                    <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded-lg shadow">Add to Cart</button>
+                
             </div>
+        </form>
         </div>
     </div>
 

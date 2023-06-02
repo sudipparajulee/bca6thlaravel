@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NoticeController;
@@ -35,7 +36,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified','isadmin'])->name('dashboard');
 
 
-
+Route::middleware(['auth'])->group(function(){
+    Route::get('/mycart',[CartController::class,'index'])->name('cart.index');
+    Route::post('/mycart/store',[CartController::class,'store'])->name('cart.store');
+});
 
 
 

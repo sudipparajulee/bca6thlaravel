@@ -26,6 +26,8 @@ Route::get('/',[PagesController::class,'home'])->name('home');
 
 Route::get('/viewproduct/{product}',[PagesController::class,'viewproduct'])->name('viewproduct');
 
+Route::get('/categoryproduct/{id}',[PagesController::class,'categoryproduct'])->name('categoryproduct');
+
 Route::get('/userlogin',[PagesController::class,'userlogin'])->name('userlogin');
 
 Route::get('/userregister',[UserController::class,'userregister'])->name('user.register');

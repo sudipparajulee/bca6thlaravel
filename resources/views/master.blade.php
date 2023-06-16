@@ -20,7 +20,7 @@
                     @csrf
                     <button type="submit"> Logout</button>
                 </form>
-                <a href="{{route('cart.index')}}"> My Cart</a>
+                <a href="{{route('cart.index')}}"> My Cart - {{$itemsincart}} </a>
             </div>
             @else
         <span><a href="{{route('userlogin')}}">Login/Register</a></span>
@@ -30,7 +30,7 @@
         <ul class="menu">
             <li><a href="/">Home</a></li>
             @foreach($categories as $category)
-            <li><a href="/">{{$category->name}}</a></li>
+            <li><a href="{{route('categoryproduct',$category->id)}}">{{$category->name}}</a></li>
             @endforeach
             
         </ul>

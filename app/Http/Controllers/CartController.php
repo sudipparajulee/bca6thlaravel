@@ -19,10 +19,10 @@ class CartController extends Controller
         }
         else
         {
-            $itemsincart = Cart::where('user_id',auth()->user()->id)->count();
+            $itemsincart = Cart::where('user_id',auth()->user()->id)->where('is_ordered',false)->count();
         }
         $categories = Category::orderBy('priority')->get();
-        $carts = Cart::where('user_id',auth()->user()->id)->get();
+        $carts = Cart::where('user_id',auth()->user()->id)->where('is_ordered',false)->get();
         return view('viewcart',compact('carts','categories','itemsincart'));
     }
 
@@ -47,7 +47,7 @@ class CartController extends Controller
         $data['user_id'] = auth()->user()->id;
 
         //check if already exist
-        $check = Cart::where('product_id',$data['product_id'])->where('user_id',$data['user_id'])->count();
+        $check = Cart::where('product_id',$data['product_id'])->where('user_id',$data['user_id'])->where('is_ordered',false)->count();
         if($check > 0)
         {
             return back()->with('success','Item already in Cart');

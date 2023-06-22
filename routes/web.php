@@ -64,6 +64,13 @@ Route::middleware(['auth','isadmin'])->group(function () {
     Route::post('/category/destroy',[CategoryController::class,'destroy'])->name('category.destroy');
 
 
+    //Orders
+    Route::get('/order',[OrderController::class,'index'])->name('order.index');
+    Route::get('/order/{id}/edit',[OrderController::class,'edit'])->name('order.edit');
+    Route::post('/order/{id}/update',[OrderController::class,'update'])->name('order.update');
+    Route::get('/order/status/{id}/{status}',[OrderController::class,'status'])->name('order.status');
+    Route::get('/order/{id}/details',[OrderController::class,'details'])->name('order.details');
+
 
     //Notice
     Route::get('/notice',[NoticeController::class,'index'])->name('notice.index');

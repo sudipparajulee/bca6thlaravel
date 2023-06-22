@@ -35,4 +35,27 @@ class OrderController extends Controller
         return redirect()->route('home')->with('success', 'Order has been placed successfully');
         
     }
+
+    public function index()
+    {
+        $orders = Order::all();
+        return view('orders.index', compact('orders'));
+    }
+
+
+    public function details($orderid)
+    {
+        $order = Order::find($orderid);
+        $carts = Cart::whereIn('id', explode(',', $order->cart_id))->get();
+        return view('orders.details', compact('carts','order'));
+    }
+
+
+    public function status($id,$status)
+    {
+        $order = Order::find($id);
+        $order->status = $status;
+        $order->save();
+        return redirect(route('order.index'))->with('success','Status changed to '.$status);
+    }
 }

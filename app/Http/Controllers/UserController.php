@@ -30,6 +30,9 @@ class UserController extends Controller
         $data['role'] = 'user';
 
         User::create($data);
+
+        
+
         return redirect(route('home'));
     }
 }
